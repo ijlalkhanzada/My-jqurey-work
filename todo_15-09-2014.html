@@ -1,0 +1,79 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head lang="en">-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+    <!--<style>-->
+
+    <!--</style>-->
+    <!--<script src="jquery-2.1.1.js"></script>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--<div id="sec1">-->
+<!--<ul class="u1"></ul>-->
+    <!--<ul class="u2"></ul>-->
+
+<!--</div>-->
+<!--<div id="sec2">-->
+    <!--<ul class="u1 man"></ul>-->
+    <!--<ul class="u1"></ul>-->
+
+<!--</div>-->
+<!--<button id="add">Button</button>-->
+
+<!--<script>-->
+
+    <!--$('#add').on('click',function(e){-->
+
+<!--//        $('#sec1').find('.u2').append('<li>ijlal</li>');-->
+
+        <!--$('#sec2').find('.u1').filter('.man').append('<li>ijlal</li>');-->
+    <!--})-->
+
+
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>filter demo</title>
+    <style>
+        div {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            float: left;
+            border: 2px white solid;
+        }
+    </style>
+    <script src="js/jquery-2.1.1.js"></script>
+</head>
+<body>
+<div></div>
+<div class="middle"></div>
+<div class="middle"></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div class="middle"></div>
+<div class="middle"></div>
+<div></div>
+<div></div>
+<div></div>
+<div class="middle"></div>
+<div></div>
+<script>
+    $( "div" )
+//            .css( "background", "#c8ebcc" )
+            .filter( ".middle" )
+            .css( "border-color", "red" );
+</script>
+
+</body>
+</html>
