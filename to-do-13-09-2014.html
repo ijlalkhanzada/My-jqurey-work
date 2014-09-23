@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jqurey</title>
+    <style>
+        body{
+            background: lightgrey;
+        }
+
+        .wrapper{
+            width: 960px;
+            margin: 0 auto;
+        }
+        .box{
+            background: #84c8c3;
+            width: 50%;
+            border-radius:50px ;
+            height: 100px;
+            float: left;
+            margin: 10px;
+            border: 1px dashed darkslateblue;
+        }
+        .box1,.box2, .box3,.box4,.box5{
+            display: none;
+            margin-right: 25px;
+        }
+        h1{
+            text-align: center;
+        }
+
+        button {
+            width: 100px;
+            height: 50px;
+            background: goldenrod;
+            border: 1px solid black;
+            border-radius:50px ;
+            float: right;
+        }
+
+        a{
+            text-decoration: none;
+            font-size: 25px;
+            font-family: gubblebum-blocky;
+            color: wheat;
+        }
+
+    </style>
+    <script src="js/jquery-2.1.1.js"></script>
+
+</head>
+<body>
+<div class="wrapper">
+
+    <button id="start"><a href="#">Start</a></button>
+    <div class="box box1"><h1>I</h1></div>
+    <div class="box box2"><h1>J</h1></div>
+    <div class="box box3"><h1>L</h1></div>
+    <div class="box box4"><h1>A</h1></div>
+    <div class="box box5"><h1>L</h1></div>
+
+</div>
+<script>
+
+    $('#start').on('click',function(){
+
+        console.log('start button is worked');
+
+        $('.box1').slideDown(1000,function(){
+
+            console.log('slide Down I', this);
+
+            $('.box2').slideDown(1000,function(){
+
+                console.log('slide Down J');
+
+                $('.box3').slideDown(1000,function(){
+
+                    console.log('slide Down L');
+
+                    $('.box4').slideDown(1000,function(){
+
+                        console.log('slide Down A');
+
+                        $('.box5').slideDown(1000,function(){
+
+                            console.log('slide Down L');
+
+                            $('.box5').slideUp(1000,function (){
+
+                                console.log('test is over',this);
+
+                                $('.box4').slideUp(1000,function(){
+
+                                    console.log('test is over',this);
+
+                                    $('.box3').slideUp(1000,function(){
+
+                                        console.log('test is over',this);
+
+                                        $('.box2').slideUp(1000,function(){
+
+                                            console.log('test is over',this);
+
+                                            $('.box1').slideUp(1000,function(){
+
+                                                console.log('test is over',this);
+
+                                                $('#start').text('Restart')
+
+                                            });
+
+                                        });
+
+                                    });
+
+                                });
+                            });
+
+                        });
+
+                    });
+
+                });
+            });
+        });
+    });
+
+
+
+</script>
+</body>
+</html>
