@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Form Information</title>
+    <style>
+        body{
+            background: rgb(117, 146, 91);
+        }
+        .wrapper{
+            width: 960px;
+            margin: 0 auto;
+        }
+        #form{
+            width: 100%;
+            float: left;
+            text-align: center;
+            background: rgb(240, 255, 240);
+        }
+        #tab{
+            background: rgb(123, 231, 214);
+            width: 100%;
+            float: left;
+        }
+
+        td{
+            text-align: center;
+        }
+        #button{
+            background: rgb(73, 168, 115);
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 18px;
+            color: rgb(255, 255, 255);
+        }
+        h1{
+            text-align: center;
+            font-family: georgia, serif;
+            color: papayawhip;
+            border: 1px dotted #535353;
+            border-radius:15px ;
+        }
+    </style>
+    <script src="js/jquery-2.1.1.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Form of Information</h1>
+    <form id="form">
+        <input type="text" name="name" placeholder="Enter Your Name" id="input" required>
+        <input type="email" name="email" placeholder="Enter Your Email" id="email" required>
+        <input type="number" name="ege" placeholder="Enter Your Ege" id="ege" required>
+        <input type="number" name="number" placeholder="Enter Your Number" id="number" required>
+        <!--<input type="submit" id="button" value="Plz Submit">-->
+        <button type="submit" id="button">Submit</button>
+
+    </form>
+    <table id="tab">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Ege</th>
+            <th>Number</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<script>
+
+    $('#form').on('submit',function(e){
+
+
+e.preventDefault();
+        var name = $('#input').val();
+
+        var email = $('#email').val();
+
+        var ege = $('#ege').val();
+
+        var number = $('#number').val();
+
+        var nameEmailOutput = $('tbody').append('<tr>' + '<td>'+ name +'</td>' + '<td>'+ email +'</td>' +'<td>'+ ege +'</td>'+  +'' +
+                '<td>'+ number +'</td>'+  +'</tr>');
+
+        $('#form').get(0).reset();
+
+
+//        document.getElementById("button").innerHTML = ('THANKS');
+
+        $("#button").text('thanks');
+
+
+        console.log(nameEmailOutput);
+
+
+    });
+
+
+
+</script>
+</body>
+</html>
