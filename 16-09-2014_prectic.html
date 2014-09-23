@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background-image: url("images/7YKUD.jpg");
+
+        }
+        div{
+
+        }
+        h2{
+            text-align: center;
+        }
+        p{
+            display: none;
+            text-align: center;
+            font-size: 50px;
+        }
+        a{
+            list-style: none;
+            text-decoration: none;
+            color: white;
+            font-size: 25px;
+        }
+        #form{
+            text-align: center;
+            display: none;
+        }
+        #tab{
+            background: rgb(123, 231, 214);
+            width: 100%;
+            float: left;
+            display: none;
+        }
+
+        td{
+            text-align: center;
+        }
+        #form2{
+            float: left;
+        }
+        #button{
+            outline: 0;
+            color: white;
+            background: #4472b9;
+            white-space: nowrap;
+            border: 5px solid #4472b9 !important;
+            font-family: 'Gotham Rounded A', 'Gotham Rounded B', sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            padding: 9px 16px !important;
+            line-height: 1.4;
+            position: relative;
+            border-radius: 10px;
+             box-shadow: 5px 5px 0 0 rgba(0,0,0,0.15);
+            transition: 0.1s;
+        }
+        #button:hover{
+            background: white;
+            color: blue;
+        }
+    </style>
+    <script src="js/jquery-2.1.1.js"></script>
+</head>
+<body class="wrapper">
+<form id="form2">
+    <fieldset data-role="controlgroup" data-mini="true">
+        <input type="radio" name="radio-choice-v-6" id="radio-choice-v-6a" value="on">
+        <label for="radio-choice-v-6a"><a href="#">One</a></label>
+        <input type="radio" name="radio-choice-v-6" id="radio-choice-v-6b" value="off">
+        <label for="radio-choice-v-6b"><a href="#">Two</a> </label>
+        <input type="radio" name="radio-choice-v-6" id="radio-choice-v-6c" value="other">
+        <label for="radio-choice-v-6c"><a href="#">Three</a></label>
+        <input type="radio" name="radio-choice-v-6" id="radio-choice-v-6e" value="other">
+        <label for="radio-choice-v-6e"><a href="#">Four</a></label>
+        <input type="radio" name="radio-choice-v-6" id="radio-choice-v-6f" value="other">
+        <label for="radio-choice-v-6f"><a href="#">Five</a></label>
+    </fieldset>
+</form>
+<div>
+    <p>محمد اجلال خانزادہ</p>
+    <!--<p><img src="ijlal.jpg"></p>-->
+</div>
+
+<form id="form">
+    <input type="text" name="name" placeholder="Enter Your Name" id="input" required>
+    <input type="email" name="email" placeholder="Enter Your Email" id="email" required>
+    <input type="number" name="ege" placeholder="Enter Your Ege" id="ege" required>
+    <input type="number" name="number" placeholder="Enter Your Number" id="number" required>
+    <input type="submit" name="vote" value="Vote" id="button">
+</form>
+<table id="tab">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Number</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    $("#radio-choice-v-6a").click(function(){
+        $("p").slideToggle(3000,function(){
+        });
+    });
+
+    $("#radio-choice-v-6b").click(function(){
+        $("p").slideUp(3000);
+    });
+    $("#radio-choice-v-6c").click(function(){
+        $("p").toggle('slid');
+    });
+
+    $("#radio-choice-v-6e").click(function(){
+
+        $("#form").toggle('slid');
+
+
+        $('#form').on('submit',function(e){
+
+            $("#tab").show('slid');
+
+            e.preventDefault();
+
+            var name = $('#input').val();
+
+            var email = $('#email').val();
+
+            var ege = $('#ege').val();
+
+            var number = $('#number').val();
+
+            var nameEmailOutput = $('tbody').append('<tr>' + '<td>'+ name +'</td>' + '<td>'+ email +'</td>' +'<td>'+ ege +'</td>'+  +'' +
+                    '<td>'+ number +'</td>'+  +'</tr>');
+
+            $('#form').get(0).reset();
+
+            $("#button").text('شکریہ');
+//                    .delay(3000).text('test');
+
+            console.log(nameEmailOutput);
+        });
+
+    });
+    $('#radio-choice-v-6f').on('click',function(){
+        $('.wrapper').remove('')
+    })
+</script>
+</body>
+</html>
