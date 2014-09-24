@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Slider</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            width: 940px;
+            height: 940px;
+            margin: 100px auto 0;
+            background: gainsboro;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       .slider ul{
+           width: 10000px;
+           list-style: none;
+        }
+       .slider{
+           margin-top: 1em;
+       }
+
+        .slider{
+            width: inherit;
+            overflow: hidden;
+        }
+        .slider li{
+            float: left;
+            display:none;
+            overflow:hidden;
+            transition: all 1s ease-in-out;
+        }
+        .slider li.active{
+            display:block;
+        }
+        .fa-angle-right{
+            font-size: 70px;
+            float: right;
+            position: relative;
+            top: 254px;
+            margin-right: 11px;
+            color: grey
+        }
+        .fa-angle-left{
+            font-size: 70px;
+            position: relative;
+            top: 254px;
+            margin-left: 11px;
+            color: grey
+        }
+
+    </style>
+    <script src="js/jquery-2.1.1.js"></script>
+</head>
+<body>
+    <div class="slider">
+        <i class="fa fa-angle-left"></i>
+        <i class="fa fa-angle-right"></i>
+
+        <ul>
+            <li><img src="images/features.jpg"></li>
+            <li><img src="images/overflow%20(1).jpg"></li>
+            <li><img src="images/captions.jpg"></li>
+            <li><img src="images/Parallax-slider-6.jpg"></li>
+
+        </ul>
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.slider').find('li').first().addClass('active');
+
+            $('.fa-angle-right').on('click',function(){
+                $('.slider').find('li.active').next().addClass('active').prev().removeClass('active');
+            });
+            $('.fa-angle-left').on('click',function(){
+                console.log('worked', $(this));
+                $('.slider').find('li.active').prev().addClass('active').next().removeClass('active');
+            });
+        });
+    </script>
+</body>
+</html>
