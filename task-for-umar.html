@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Umar task for task</title>
+    <style>
+
+    </style>
+    <script src="js/jquery-2.1.1.js"></script>
+</head>
+<body>
+<div id="app">
+    <p id="message">message will appear here</p>
+    <label>
+        <input type="radio" name="message" data-message="this is message 1"/>
+        Message 1
+    </label>
+    <label>
+        <input type="radio" name="message" data-message="this is message 2"/>
+        Message 2
+    </label>
+    <label>
+        <input type="radio" name="message" data-message="this is message 3"/>
+        Message 3
+    </label>
+</div>
+<!--________________Jqurey___________________________________-->
+
+<script>
+    //________________________Step One_________________________
+
+    $('label').on('click',function(){
+//______________________Chek my Func_________________________
+
+        console.log('hello',$(this));
+
+//__________________Grep Data________________________________
+
+        var message = $ (this).find('input').data('message');
+//______________________Cheng Text on Browser____________________
+
+        $('#message').text(message);
+
+    })
+</script>
+</body>
+</html>
