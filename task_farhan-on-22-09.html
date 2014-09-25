@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-2.1.1.js"></script>
+</head>
+<body>
+
+<div id="accordian"></div>
+
+<script type="text/javascript">
+
+    function CreateAccording(options){
+        this.createItem(options);
+    }
+
+    CreateAccording.prototype.createItem = function(options){
+        var headBox = options.requiredElements.box;
+        var headTagName = options.requiredElements.headings;
+        var detailTagName = options.requiredElements.details;
+
+        for(var i = 0; i < options.headings.length; i++){
+            var headingBox = $('<'+ headBox +' class="item">' + '<'+ headTagName +'>' + options.headings[i] + '</'+ headTagName +'>' + '<'+ detailTagName +'>' + options.details[i] +'</'+ detailTagName +'>' + '</'+ headBox +'>');
+            options.$location.append(headingBox);
+        }
+        this.createAccordion(headTagName, detailTagName);
+    };
+
+    CreateAccording.prototype.createAccordion = function(headTagName, detailTagName){
+        var item = $('.item');
+        item.find(detailTagName).slideUp();
+        item.first().find(detailTagName).slideDown();
+
+        item.on('click', function(){
+            item.find(detailTagName).slideUp();
+            $(this).find(headTagName).next(detailTagName).slideDown();
+        });
+    };
+    var options = {
+        headings : ['Heading 1', 'Heading 2', 'Heading 3'],
+        details : ['this is heading 1 text', 'this is heading 2 text', 'this is heading 3 text'],
+        requiredElements : {
+            box : 'div',
+            headings : 'h3',
+            details : 'p'
+        },
+        $location : $('#accordian')
+    };
+    var garnetNew = new CreateAccording(options);
+
+</script>
+</body>
+</html>
