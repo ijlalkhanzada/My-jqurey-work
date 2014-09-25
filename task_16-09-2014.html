@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Task</title>
+    <style>
+        .danger{
+            color: red;
+        }
+    </style>
+    <script src="js/jquery-2.1.1.js"></script>
+</head>
+<body>
+<form id="form1">
+    <input type="text" class="text1" placeholder="Name">
+    <button type="submit" id="add" value="Submit">Submit</button>
+
+</form>
+
+<div class="grepDeta">
+<h2>My name is ijlal khanzada</h2>
+
+</div>
+<script>
+     $('#add').on('click',function(e){
+
+        e.preventDefault();
+
+        var outputVal = $('.text1').val();
+
+        console.log(outputVal);
+
+         var divegrep = $('.grepDeta').text();
+
+//         $(".grepDeta").addClass("danger");
+
+
+         $(this).toggleClass("danger");
+
+         console.log(divegrep);
+     })
+</script>
+</body>
+</html>
