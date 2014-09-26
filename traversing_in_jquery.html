@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Traversing</title>
+    <style>
+        body{
+            background: cadetblue;
+        }
+        .wrapper{
+            width: 1005px;
+            margin: 0 auto;
+            background: #4ed2cf;
+        }
+        h2{
+            text-align: center;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .find ,.filter ,.first,.children,.eq,.last,.next,.parent,.parents,.prev,.siblings1{
+            display: none;
+            width: 100%;
+        }
+        .showButtons{
+            display: none;
+            width: 100%;
+            text-align:  center;
+            float: left;
+        }
+        #addfind{
+            width: 100%;
+            text-align: center;
+        }
+        #addlast{
+            width: 100%;
+            text-align: center;
+        }
+        #addfilter{
+            width: 100%;
+            text-align: center;
+        }
+        #addchildren{
+            width: 100%;
+            text-align: center;
+        }
+        #addparents{
+            width: 100%;
+            text-align: center;
+        }
+        #addeq{
+            width: 100%;
+            text-align: center;
+        }
+        #addnext{
+            width: 100%;
+            text-align: center;
+        }
+        #addprev{
+            width: 100%;
+            text-align: center;
+        }
+        #addsiblings{
+            width: 100%;
+            text-align: center;
+        }
+        #addparent{
+            width: 100%;
+            text-align: center;
+        }
+        #addfast{
+            width: 100%;
+            text-align: center;
+        }
+        a{
+            list-style: none;
+            font-family: sans-serif;
+            font-size: 15px;
+            text-decoration: none;
+
+        }
+        .welcome{
+            background: darkseagreen;
+            width: 100%;
+            border: 1px solid gold;
+        }
+
+    </style>
+    <script src="js/jquery-2.1.1.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="find">
+        <h2>Find</h2>
+        <ol class="finTwo"></ol>
+        <OL>
+        </OL>
+        <button id="addfind"><a href="#">AddFind</a> </button>
+    </div>
+    <div class="filter">
+        <h2>Filter</h2>
+        <ol class="filter2 man">
+        </ol>
+        <ol></ol>
+        <button id="addfilter"><a href="#">Addfilter</a> </button>
+    </div>
+    <div class="first">
+        <h2>first</h2>
+        <OL></OL>
+        <OL></OL>
+        <OL></OL>
+        <OL></OL>
+        <button id="addfast"><a href="#">Add Fast</a></button>
+
+    </div>
+    <div class="last">
+        <h2>Last</h2>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ol class="last2">
+            <ul></ul>
+            <ul></ul>
+            <ul></ul>
+            <ul></ul>
+            <ul></ul>
+        </ol>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <button id="addlast"><a href="#">addlast</a></button>
+
+    </div>
+    <div class="next">
+        <h2>Next</h2>
+        <ul></ul>
+        <ul></ul>
+        <ol>
+            <li></li>
+            <li></li>
+            <li class="next2"></li>
+            <li></li>
+            <li></li>
+        </ol>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <button id="addnext"><a href="#">addnext</a></button>
+
+    </div>
+    <div class="prev">
+        <h2>prev</h2>
+        <ul></ul>
+        <ul></ul>
+        <ol>
+            <li></li>
+            <li></li>
+            <li class="prev2"></li>
+            <li></li>
+            <li></li>
+        </ol>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <button id="addprev"><a href="#">addprev</a></button>
+    </div>
+    <div class="eq">
+        <h2>Eq</h2>
+        <ol>
+            <li></li>
+        </ol>
+        <button id="addeq"><a href="#">addeq</a></button>
+
+    </div>
+    <div class="children">
+        <h2>children</h2>
+
+        <ol></ol>
+        <ol class="children2"></ol>
+        <ol></ol>
+
+        <button id="addchildren"><a href="#">addchildren</a></button>
+
+    </div>
+    <div class="siblings1">
+        <h2>siblings</h2>
+        <ul class="siblings2">
+            <li></li>
+        </ul>
+        <ul></ul>
+        <button id="addsiblings"><a href="#">addsiblings</a></button>
+    </div>
+    <div class="parent">
+        <h2>parent</h2>
+        <ol></ol>
+        <ol class="parent2"></ol>
+        <ol></ol>
+        <button id="addparent"><a href="#">addparent</a></button>
+    </div>
+    <div class="parents">
+        <h2>parents</h2>
+        <ol></ol>
+        <ol class="parents2"></ol>
+        <ol></ol>
+        <button id="addparents"><a href="#"></a>addparents</button>
+    </div>
+    <div class="showButtons">
+        <button class="show"><a href="#">Add Find</a></button>
+        <button class="show1"><a href="#">Add Filter</a></button>
+        <button class="show2"><a href="#">Add First</a></button>
+        <button class="show3"><a href="#">Add Last</a></button>
+        <button class="show4"><a href="#">Add Next</a></button>
+        <button class="show5"><a href="#">Add Prev</a></button>
+        <button class="show6"><a href="#">Add Eq</a></button>
+        <button class="show7"><a href="#">Add Children</a></button>
+        <button class="show8"><a href="#">Add Siblings</a></button>
+        <button class="show9"><a href="#">Add Parent</a></button>
+        <button class="show10"><a href="#">Add Parents</a></button>
+    </div>
+    <button class="welcome"><a href="#">Welcome to in jQuery Traversing</a></button>
+</div>
+<script>
+
+    $('.welcome').on('click',function(){
+
+
+        $('.showButtons').slideToggle(3000);
+
+        $('.show').on('click',function(){
+
+            $('.find').toggle('fast');
+
+            $('#addfind').on('click',function(){
+
+                var find = $('.find').find('.finTwo').append('<li>Find</li>').toggle(3000);
+
+                console.log(find);
+            });
+        });
+        $('.show1').on('click',function(){
+
+            $('.filter').toggle('fast');
+
+            $('#addfilter').on('click',function(){
+
+                var filter = $('.filter').find('.filter2').filter('.man').append('<li>filter</li>').toggle(3000);
+
+                console.log(filter);
+
+            });
+        });
+        $('.show2').on('click',function(){
+
+            $('.first').toggle('fast');
+
+            $('#addfast').on('click',function(){
+
+                var first = $('.first').find('ol').first().append('<li>first</li>').toggle(3000);
+
+                console.log(first);
+
+            });
+
+
+        });
+        $('.show3').on('click',function(){
+
+            $('.last').toggle('fast');
+
+            $('#addlast').on('click',function(){
+
+                var last = $('.last').find('.last2').find('ul').last().append('<li>last</li>').toggle(3000);
+
+                console.log(last);
+
+            });
+
+        });
+        $('.show4').on('click',function(){
+            $('.next').toggle('fast');
+
+            $('#addnext').on('click',function(){
+
+                var last = $('.next').find('.next2').next().append('<li>last</li>').toggle(3000);
+
+                console.log(last);
+
+            });
+
+
+        });
+        $('.show5').on('click',function(){
+
+            $('.prev').toggle('fast');
+
+            $('#addprev').on('click',function(){
+
+                var last = $('.prev').find('.prev2').prev().append('<li>last</li>').toggle(3000);
+
+                console.log(last);
+
+            });
+
+        });
+        $('.show6').on('click',function(){
+            $('.eq').toggle('fast');
+
+            $('#addeq').on('click',function(){
+
+                var last = $('.eq').find('li').eq(0).append('<li>last</li>').toggle(3000);
+
+                console.log(last);
+
+            });
+
+
+        });
+        $('.show7').on('click',function(){
+            $('.children').toggle('fast');
+
+            $('#addchildren').on('click',function(){
+
+                var last = $('.children').children('.children2').append('<li>children</li>').toggle(3000);
+
+                console.log(last);
+
+            });
+
+
+        });
+        $('.show8').on('click',function(){
+
+            $('.siblings1').show('fast');
+
+            $('#addsiblings').on('click',function(){
+
+                var sibling = $('.siblings').siblings().append('<li>children</li>').toggle(3000);
+
+                console.log('sibling',this);
+
+            });
+
+        });
+        $('.show9').on('click',function(){
+            $('.parent').toggle('fast');
+
+            $('#addparent').on('click',function(){
+
+                var last = $('.parent2').parent().append('<li>children</li>').toggle(3000);
+                console.log(last);
+
+            });
+
+        });
+        $('.show10').on('click',function(){
+
+            $('.parents').toggle('fast');
+
+            $('#addparents').on('click',function(){
+
+                var last = $('.parents2').parents().append('<li>Parents</li>').toggle(3000);
+                console.log(last);
+
+            })
+
+
+        });
+
+        $(".welcome").text('شکریہ').fadeOut(3000);
+
+    })
+
+</script>
+</body>
+</html>
