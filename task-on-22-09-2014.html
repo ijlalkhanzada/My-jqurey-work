@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Task on 22-09-2014</title>
+    <style>
+        h3{
+            background: white;
+            border: 1px solid black;
+        }
+        p{
+            display: none;
+        }
+        .item:first-child p{
+            display: block;
+        }
+    </style>
+    <script src="js/jquery-2.1.1.js"></script>
+</head>
+<body id="accordion">
+<div class="item">
+    <h3>Heading 1</h3>
+    <p>lorem ipsum dolar sit amet lorem ipsum dolar sit amet lorem ipsum dolar sit amet</p>
+</div>
+<div class="item">
+    <h3>Heading 2</h3>
+    <p>lorem ipsum dolar sit amet lorem ipsum dolar sit amet lorem ipsum dolar sit amet</p>
+</div>
+<div class="item">
+    <h3>Heading 3</h3>
+    <p>lorem ipsum dolar sit amet lorem ipsum dolar sit amet lorem ipsum dolar sit amet</p>
+</div>
+<script>
+    $('h3').on('click',function(){
+        console.log('heloo',$(this))
+        $(this).next('p').slideDown().closest('.item').siblings('.item').children('p').slideUp()
+    })
+</script>
+</body>
+</html>
